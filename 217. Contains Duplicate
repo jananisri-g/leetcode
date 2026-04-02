@@ -29,3 +29,18 @@ public:
     }
 };
 
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+// Competitive Programmer
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> result(nums.begin(), nums.end());
+        return (result.size() != nums.size());
+    }
+};
