@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int countOne = 0;
+        int maxOne = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == 1){
+                countOne++;
+                maxOne = max(maxOne, countOne); // if you think of making use of max in else part, remember, if have to find the maximum once again after for. to avoid that we use it in if instead of else. check with [1,1,0,1,1,1]
+            }
+            else countOne = 0;
+        }
+        return maxOne;
+    }
+};
