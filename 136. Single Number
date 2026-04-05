@@ -1,0 +1,8 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int nxor = 0;
+        for(int i = 0; i < nums.size(); i++) nxor = nxor ^ nums[i];
+        return nxor;
+    }
+};
