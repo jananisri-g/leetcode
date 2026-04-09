@@ -1,30 +1,6 @@
 // TC: O(m + n)      SC: O(n)
 
-class Solution {
-public:
-    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        if(nums1.size() > nums2.size()) return intersection(nums2, nums1);
-        unordered_map<int,int> result;
-        for(int i = 0; i < nums1.size(); i++){
-            if(result.find(nums1[i]) == result.end()) result[nums1[i]]++;
-        }
-        vector<int> final;
-        for(int i = 0; i < nums2.size(); i++){
-            if(result.find(nums2[i]) != result.end()){
-                final.push_back(nums2[i]);
-                result.erase(nums2[i]);
-            }
-        }
-        return final;
-    }
-};
-
-
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-
-
+ 
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
