@@ -1,0 +1,67 @@
+// USING STACK
+
+class Solution {
+public:
+    bool isValid(string s) {
+        if (s.length() < 2) return false;
+
+        stack<char> st;
+
+        for (char c : s) {
+            // If opening bracket, push to stack
+            if (c == '(' || c == '{' || c == '[') {
+                st.push(c);
+            } 
+            else {
+                // If stack is empty or mismatch → invalid
+                if (st.empty()) return false;
+
+                char top = st.top();
+
+                if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '[')) {
+                    return false;
+                }
+
+                st.pop(); // valid match
+            }
+        }
+
+        return st.empty(); // valid only if stack is empty
+    }
+};
+
+
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+
+// USING MAPS
+
+class Solution {
+public:
+    bool isValid(string s) {
+        if(s.length() < 2) return false;
+        
+        stack<char> st;
+        unordered_map<char, char> mp = {
+            {')', '('},
+            {'}', '{'},
+            {']', '['}
+        };
+
+        for(char c : s){
+            if(mp.count(c) == 0){
+                st.push(c);
+            } else {
+                if(st.empty() || st.top() != mp[c])
+                    return false;
+                st.pop();
+            }
+        }
+        return st.empty();
+    }
+};
